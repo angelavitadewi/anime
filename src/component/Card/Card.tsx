@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import colors from '../../theme/colors';
 import { Link } from 'react-router-dom';
 import empty from '../../assets/image/empty.png';
+import { ReactNode } from 'react';
 
 const CardItem = styled.li`
   display: flex;
@@ -30,6 +31,7 @@ const CardContent = styled.div`
   flex: 1 1 auto;
   flex-direction: column;
   padding: 1rem;
+  gap: 1rem;
 `;
 export const CardItemTitle = styled.div`
   color: ${colors.grayDark};
@@ -43,9 +45,10 @@ export interface ICardProps {
   subtitle?: string;
   image?: string;
   link: string;
+  children?: ReactNode;
 }
 
-export const Card = ({ title, link, image }: ICardProps) => (
+export const Card = ({ title, link, image, children }: ICardProps) => (
   <CardItem>
     <CardWrapper>
       <Link to={link}>
@@ -53,6 +56,7 @@ export const Card = ({ title, link, image }: ICardProps) => (
       </Link>
       <CardContent>
         <CardItemTitle>{title}</CardItemTitle>
+        {children}
       </CardContent>
     </CardWrapper>
   </CardItem>

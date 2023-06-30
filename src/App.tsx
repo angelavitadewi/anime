@@ -12,6 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import storeApp from './config/storeConfig';
 import { Collections } from './page/Collections/Collections';
+import { Collection } from './page/Collections/Collection';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                   <Route index element={<Home />} />
                   <Route path='/anime/:id' element={<Detail />} />
                   <Route path='/collections' element={<Collections />} />
+                  <Route path='/collections/:id' element={<Collection />} />
                 </Routes>
               </BrowserRouter>
             </ApolloProvider>

@@ -13,7 +13,7 @@ const GET_ANIME = gql`
       media(id: $id, sort: POPULARITY_DESC) {
         id
         coverImage {
-          large
+          extraLarge
         }
         title {
           userPreferred

@@ -9,7 +9,7 @@ import { setCollection } from '../../config/redux/Action/collectionAction';
 import { Alert } from '../Alert/Alert';
 import { VariantColor } from '../../theme/enums';
 
-const ColumnContainer = styled.div`
+export const ColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;

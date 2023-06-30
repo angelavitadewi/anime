@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import colors from '../../theme/colors';
-import { ButtonCollection } from '../ButtonCollection/ButtonCollection';
 import _ from 'lodash';
+import { ButtonAddToCollection } from '../ButtonAddToCollection/ButtonAddToCollection';
+import { ColumnContainer } from '../AddCollection/AddCollection';
+import ButtonCollectionInfo from '../ButtonCollectionInfo/ButtonCollectionInfo';
 
 export const DetailCardWrapper = styled.div`
   background-color: white;
@@ -36,7 +38,6 @@ const DetailCardItemTitle = styled.div`
   text-transform: uppercase;
 `;
 const DetailCardItemDescription = styled.p`
-  flex: 1 1 auto;
   font-size: 0.875rem;
   line-height: 1.5;
 `;
@@ -59,25 +60,25 @@ export const DetailCard = ({ data }: IDetailCardProps) => (
     <DetailCardContent>
       <DetailCardItemTitle>{_.get(data, 'title.romaji', '')}</DetailCardItemTitle>
       <DetailCardItemDescription>
-        <div>
-          <b>Description : </b>
-          <br /> {_.get(data, 'description', '')}
-          <hr />
-        </div>
-        <div>
-          <b>Number of Episode : </b>
-          <br /> {_.get(data, 'episodes', '')} <hr />
-        </div>
-        <div>
-          <b>Genres : </b>
-          <br /> {_.get(data, 'genres', []).toString()} <hr />
-        </div>
-        <div>
-          <b>Popularity : </b>
-          <br /> {_.get(data, 'popularity', '')} <hr />
-        </div>
+        <b>Description : </b>
+        <br /> {_.get(data, 'description', '')}{' '}
       </DetailCardItemDescription>
-      <ButtonCollection data={data} />
+      <DetailCardItemDescription>
+        <b>Number of Episode : </b>
+        <br /> {_.get(data, 'episodes', '')}{' '}
+      </DetailCardItemDescription>
+      <DetailCardItemDescription>
+        <b>Genres : </b>
+        <br /> {_.get(data, 'genres', []).toString()}{' '}
+      </DetailCardItemDescription>
+      <DetailCardItemDescription>
+        <b>Popularity : </b>
+        <br /> {_.get(data, 'popularity', '')}{' '}
+      </DetailCardItemDescription>
+      <ColumnContainer>
+        <ButtonAddToCollection data={data} />
+        <ButtonCollectionInfo id={data.id} />
+      </ColumnContainer>
     </DetailCardContent>
   </DetailCardWrapper>
 );

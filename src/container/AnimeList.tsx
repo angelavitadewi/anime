@@ -22,7 +22,7 @@ const AnimeList = () => {
             {_.get(data, 'Page.media', []).map((item: any, index: number) => (
               <Card
                 key={index}
-                image={_.get(item, 'coverImage.large', '')}
+                image={_.get(item, 'coverImage.extraLarge', '')}
                 title={_.get(item, 'title.userPreferred', '')}
                 link={`anime/${item.id}`}
               />
