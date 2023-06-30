@@ -1,6 +1,6 @@
 import { Global } from '@emotion/react';
 import { GlobalStyles } from './component/Global/GlobalStyles';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './page/Home/Home';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './config/client';
@@ -22,7 +22,7 @@ function App() {
           <Suspense fallback={<Fragment />}>
             <ApolloProvider client={client}>
               <Global styles={GlobalStyles} />
-              <BrowserRouter basename='/anime'>
+              <HashRouter basename=''>
                 <Navbar navbarList={navbarConstant} />
                 <Routes>
                   <Route index element={<Home />} />
@@ -30,7 +30,7 @@ function App() {
                   <Route path='/collections' element={<Collections />} />
                   <Route path='/collections/:id' element={<Collection />} />
                 </Routes>
-              </BrowserRouter>
+              </HashRouter>
             </ApolloProvider>
           </Suspense>
         </PersistGate>
