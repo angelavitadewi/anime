@@ -22,7 +22,7 @@ function App() {
           <Suspense fallback={<Fragment />}>
             <ApolloProvider client={client}>
               <Global styles={GlobalStyles} />
-              <BrowserRouter basename='/'>
+              <BrowserRouter basename='/anime'>
                 <Navbar navbarList={navbarConstant} />
                 <Routes>
                   <Route index element={<Home />} />
